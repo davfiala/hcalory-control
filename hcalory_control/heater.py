@@ -56,18 +56,18 @@ class HeaterMode(int, ListableEnum):
 
 @dataclasses.dataclass
 class HeaterResponse(datastruct.DataStruct):
-    _header: bytes = datastruct.fields.field("20s")
-    heater_state: HeaterState = datastruct.fields.field("B")
-    heater_mode: HeaterMode = datastruct.fields.field("B")
-    heater_setting: int = datastruct.fields.field("B")
-    _mystery: int = datastruct.fields.field("B")
-    _1: ... = datastruct.fields.padding(1)
-    _voltage: int = datastruct.fields.field("B")
-    _2: ... = datastruct.fields.padding(1)
-    _body_temperature: bytes = datastruct.fields.field("2s")
-    _3: ... = datastruct.fields.padding(1)
-    _ambient_temperature: bytes = datastruct.fields.field("2s")
-    _end_junk: bytes = datastruct.fields.field("7s")
+    _header: bytes = datastruct.field("20s")
+    heater_state: HeaterState = datastruct.field("B")
+    heater_mode: HeaterMode = datastruct.field("B")
+    heater_setting: int = datastruct.field("B")
+    _mystery: int = datastruct.field("B")
+    _1: ... = datastruct.padding(1)
+    _voltage: int = datastruct.field("B")
+    _2: ... = datastruct.padding(1)
+    _body_temperature: bytes = datastruct.field("2s")
+    _3: ... = datastruct.padding(1)
+    _ambient_temperature: bytes = datastruct.field("2s")
+    _end_junk: bytes = datastruct.field("7s")
 
     @property
     def voltage(self) -> int:
